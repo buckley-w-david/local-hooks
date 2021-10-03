@@ -1,0 +1,122 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --input-border: #8b8a8b;
+  --input-focus-h: 245;
+  --input-focus-s: 100%;
+  --input-focus-l: 42%;
+}
+
+#parent {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    align-items: center;
+}
+
+#hooks {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+}
+
+#container {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1em;
+}
+
+#l-username {
+    margin-top: 20px;
+}
+
+.trash {
+    position: absolute;
+    top: 7px;
+    right: 0;
+}
+
+.hook {
+	padding-top: 20px;
+	border-top: black;
+	border-style: solid none none none;
+	border-width: 1px;
+	display: flex;
+	flex-direction: column;
+    position: relative;
+}
+
+.input {
+  font-size: 16px;
+  font-size: Max(16px, 1em);
+  font-family: inherit;
+  padding: 0.25em 0.5em;
+  background-color: #fff;
+  border: 2px solid var(--input-border);
+  border-radius: 4px;
+  transition: 180ms box-shadow ease-in-out;
+  max-width: 30em;
+}
+
+.input:focus {
+  border-color: hsl(
+    var(--input-focus-h),
+    var(--input-focus-s),
+    var(--input-focus-l)
+  );
+  box-shadow: 0 0 0 3px
+    hsla(
+      var(--input-focus-h),
+      var(--input-focus-s),
+      calc(var(--input-focus-l) + 40%),
+      0.8
+    );
+  outline: 3px solid transparent;
+  margin: 0.5em;
+}
+
+.input:not(textarea) {
+  line-height: 1;
+  height: 2.25rem;
+}
+
+input[type="file"] {
+  font-size: 0.9em;
+  padding-top: 0.35rem;
+}
+
+textarea.input {
+  resize: vertical;
+}
+
+.input[readonly] {
+  border-style: dotted;
+  cursor: not-allowed;
+  color: #777;
+}
+
+.input[disabled] {
+  --input-border: #ccc;
+
+  background-color: #eee;
+  cursor: not-allowed;
+}
+
+label {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.input + label {
+  margin-top: 2rem;
+}
+
+body {
+  font-family: "Baloo 2", sans-serif;
+  background-color: #e9f2fd;
+}
